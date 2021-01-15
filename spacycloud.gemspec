@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'spacycloud'
-  s.version     = '1.0.4'
+  s.version     = '1.0.5'
   s.summary     = 'Ruby client for the spaCy Cloud API'
   s.description = 'Ruby client for the spaCy Cloud API. spaCy Cloud serves all the spaCy pre-trained models, and your own custom models, through a RESTful API ready for production. More details here: https://spacycloud.io. Documentation: https://docs.spacycloud.io.'
   s.authors     = ['Julien Salinas']

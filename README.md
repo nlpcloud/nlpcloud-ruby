@@ -1,0 +1,1 @@
+client = SpacyCloud::Client.new('en_core_web_sm','{your_token}')

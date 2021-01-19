@@ -21,7 +21,7 @@ Here is a full example that uses the `en_core_web_sm` model, with a fake token:
 ```ruby
 require 'nlpcloud'
 
-client = nlpcloud::Client.new('en_core_web_sm','4eC39HqLyjWDarjtT1zdp7dc')
+client = NLPCloud::Client.new('en_core_web_sm','4eC39HqLyjWDarjtT1zdp7dc')
 client.entities("John Doe is a Go Developer at Google")
 ```
 
@@ -30,7 +30,7 @@ And a full example that uses your own custom model `7894`:
 ```ruby
 require 'nlpcloud'
 
-client = nlpcloud::Client.new('custom_model/7894','4eC39HqLyjWDarjtT1zdp7dc')
+client = NLPCloud::Client.new('custom_model/7894','4eC39HqLyjWDarjtT1zdp7dc')
 client.entities("John Doe is a Go Developer at Google")
 ```
 
@@ -72,7 +72,7 @@ Your token can be retrieved from your [NLP Cloud dashboard](https://nlpcloud.io/
 ```ruby
 require 'nlpcloud'
 
-client = nlpcloud::Client.new("<model>", "<your token>")
+client = NLPCloud::Client.new("<model>", "<your token>")
 ```
 
 ### Entities Endpoint

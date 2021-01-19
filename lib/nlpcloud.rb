@@ -3,8 +3,8 @@
 require 'json'
 require 'rest-client'
 
-module SpacyCloud
-  BASE_URL = 'https://api.spacycloud.io'
+module NLPCloud
+  BASE_URL = 'https://api.nlpcloud.io'
   API_VERSION = 'v1'
 
   # Client requests the API.

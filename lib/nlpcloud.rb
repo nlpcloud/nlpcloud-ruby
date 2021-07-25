@@ -11,7 +11,8 @@ module NLPCloud
   class Client
     def initialize(model, token)
       @headers = {
-        'Authorization' => "Token #{token}"
+        'Authorization' => "Token #{token}",
+        "User-Agent": 'nlploud-ruby-client'
       }
       @root_url = "#{BASE_URL}/#{API_VERSION}/#{model}"
     end

@@ -68,6 +68,22 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
+    def langdetection(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/langdetection", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def tokens(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/tokens", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
     def dependencies(text)
       payload = {
         'text' => text

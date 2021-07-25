@@ -83,6 +83,7 @@ If you want to use a GPU, pass `gpu: true`.
 require 'nlpcloud'
 
 client = nlpcloud.Client("<model>", "<your token>", gpu: true)
+```
 
 ### Entities Endpoint
 

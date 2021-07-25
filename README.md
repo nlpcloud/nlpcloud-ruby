@@ -77,12 +77,12 @@ require 'nlpcloud'
 client = NLPCloud::Client.new("<model>", "<your token>")
 ```
 
-If you want to use a GPU, pass `gpu=True`.
+If you want to use a GPU, pass `gpu: true`.
 
 ```ruby
 require 'nlpcloud'
 
-client = nlpcloud.Client("<model>", "<your token>", gpu=True)
+client = nlpcloud.Client("<model>", "<your token>", gpu: true)
 
 ### Entities Endpoint
 

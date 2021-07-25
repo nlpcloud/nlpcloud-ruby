@@ -135,8 +135,6 @@ The above command returns a JSON object.
 
 Call the `summarization()` method and pass the text you want to summarize.
 
-**Note that your block of text should not exceed 1024 words, otherwise you will get an error. Also note that this model works best for blocks of text between 56 and 142 words.**
-
 ```ruby
 client.summarization("<Your text to summarize>")
 ```
@@ -149,6 +147,26 @@ Call the `translation()` method and pass the text you want to translate.
 
 ```ruby
 client.translation("<Your text to translate>")
+```
+
+The above command returns a JSON object.
+
+### Language Detection Endpoint
+
+Call the `langdetection()` method and pass the text you want to analyze in order to detect the languages.
+
+```ruby
+client.langdetection("<The text you want to analyze>")
+```
+
+The above command returns a JSON object.
+
+### Tokenization Endpoint
+
+Call the `tokens()` method and pass the text you want to tokenize.
+
+```ruby
+client.tokens("<Your block of text>")
 ```
 
 The above command returns a JSON object.

@@ -2,7 +2,7 @@
 
 This is a Ruby client for the NLP Cloud API: https://docs.nlpcloud.io
 
-NLP Cloud serves high performance pre-trained models for NER, sentiment-analysis, classification, summarization, question answering, and POS tagging, ready for production, served through a REST API. 
+NLP Cloud serves high performance pre-trained for NER, sentiment-analysis, classification, summarization, text generation, question answering, machine translation, language detection, tokenization, POS tagging, and dependency parsing. It is ready for production, served through a REST API.
 
 Pre-trained models are the spaCy models and some transformers-based models from Hugging Face. You can also deploy your own transformers-based models or spaCy models.
 
@@ -76,6 +76,13 @@ require 'nlpcloud'
 
 client = NLPCloud::Client.new("<model>", "<your token>")
 ```
+
+If you want to use a GPU, pass `gpu=True`.
+
+```ruby
+require 'nlpcloud'
+
+client = nlpcloud.Client("<model>", "<your token>", gpu=True)
 
 ### Entities Endpoint
 

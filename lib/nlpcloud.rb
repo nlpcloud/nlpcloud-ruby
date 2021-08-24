@@ -12,7 +12,7 @@ module NLPCloud
     def initialize(model, token, gpu: false)
       @headers = {
         'Authorization' => "Token #{token}",
-        "User-Agent": 'nlploud-ruby-client'
+        'User-Agent' => 'nlpcloud-ruby-client'
       }
 
       @root_url = if gpu

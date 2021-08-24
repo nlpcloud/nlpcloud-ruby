@@ -30,13 +30,33 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def classification(text, labels, multi_class)
+    def classification(text, labels, multi_class: nil)
       payload = {
         'text' => text,
         'labels' => labels,
         'multi_class' => multi_class
       }
       response = RestClient.post("#{@root_url}/classification", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def generation(text, min_length: nil, max_length: nil, length_no_input: nil,
+                   end_sequence: nil, remove_input: nil, top_k: nil, top_p: nil,
+                   temperature: nil, repetition_penalty: nil, length_penalty: nil)
+      payload = {
+        'text' => text,
+        'min_length' => min_length,
+        'max_length' => max_length,
+        'length_no_input' => length_no_input,
+        'end_sequence' => end_sequence,
+        'remove_input' => remove_input,
+        'top_k' => top_k,
+        'top_p' => top_p,
+        'temperature' => temperature,
+        'repetition_penalty' => repetition_penalty,
+        'length_penalty' => length_penalty
+      }
+      response = RestClient.post("#{@root_url}/generation", payload.to_json, @headers)
       JSON.parse(response.body)
     end
 

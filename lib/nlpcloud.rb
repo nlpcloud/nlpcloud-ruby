@@ -41,8 +41,9 @@ module NLPCloud
     end
 
     def generation(text, min_length: nil, max_length: nil, length_no_input: nil,
-                   end_sequence: nil, remove_input: nil, top_k: nil, top_p: nil,
-                   temperature: nil, repetition_penalty: nil, length_penalty: nil)
+                   end_sequence: nil, remove_input: nil, do_sample: nil, num_beams: nil, early_stopping: nil,
+                   no_repeat_ngram_size: nil, num_return_sequences: nil, top_k: nil, top_p: nil,
+                   temperature: nil, repetition_penalty: nil, length_penalty: nil, bad_words: nil)
       payload = {
         'text' => text,
         'min_length' => min_length,
@@ -50,11 +51,17 @@ module NLPCloud
         'length_no_input' => length_no_input,
         'end_sequence' => end_sequence,
         'remove_input' => remove_input,
+        'do_sample' => do_sample,
+        'num_beams' => num_beams,
+        'early_stopping' => early_stopping,
+        'no_repeat_ngram_size' => no_repeat_ngram_size,
+        'num_return_sequences' => num_return_sequences,
         'top_k' => top_k,
         'top_p' => top_p,
         'temperature' => temperature,
         'repetition_penalty' => repetition_penalty,
-        'length_penalty' => length_penalty
+        'length_penalty' => length_penalty,
+        'bad_words' => bad_words
       }
       response = RestClient.post("#{@root_url}/generation", payload.to_json, @headers)
       JSON.parse(response.body)

@@ -12,6 +12,7 @@ module NLPCloud
     def initialize(model, token, gpu: false)
       @headers = {
         'Authorization' => "Token #{token}",
+        'Content-Type' => 'application/json',
         'User-Agent' => 'nlpcloud-ruby-client'
       }
 

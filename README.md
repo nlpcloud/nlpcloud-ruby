@@ -23,7 +23,7 @@ Here is a full example that performs Named Entity Recognition (NER) using spaCy'
 ```ruby
 require 'nlpcloud'
 
-client = NLPCloud::Client.new('en_core_web_lg','4eC39HqLyjWDarjtT1zdp7dc')
+client = NLPCloud::Client.new("en_core_web_lg","4eC39HqLyjWDarjtT1zdp7dc")
 client.entities("John Doe is a Go Developer at Google")
 ```
 
@@ -32,7 +32,7 @@ And a full example that uses your own custom model `7894`:
 ```ruby
 require 'nlpcloud'
 
-client = NLPCloud::Client.new('custom_model/7894','4eC39HqLyjWDarjtT1zdp7dc')
+client = NLPCloud::Client.new("custom_model/7894","4eC39HqLyjWDarjtT1zdp7dc")
 client.entities("John Doe is a Go Developer at Google")
 ```
 

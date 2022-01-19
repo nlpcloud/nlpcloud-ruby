@@ -9,15 +9,19 @@ module NLPCloud
 
   # Client requests the API.
   class Client
-    def initialize(model, token, gpu: false)
+    def initialize(model, token, gpu: false, lang: '')
       @headers = {
         'Authorization' => "Token #{token}",
         'Content-Type' => 'application/json',
         'User-Agent' => 'nlpcloud-ruby-client'
       }
 
-      @root_url = if gpu
+      @root_url = if gpu && (lang != '')
+                    "#{BASE_URL}/#{API_VERSION}/gpu/#{lang}/#{model}"
+                  elsif gpu && (lang == '')
                     "#{BASE_URL}/#{API_VERSION}/gpu/#{model}"
+                  elsif !gpu && (lang != '')
+                    "#{BASE_URL}/#{API_VERSION}/#{lang}/#{model}"
                   else
                     "#{BASE_URL}/#{API_VERSION}/#{model}"
                   end

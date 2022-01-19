@@ -85,6 +85,14 @@ require 'nlpcloud'
 client = NLPCloud::Client.new("<model>", "<your token>", gpu: true)
 ```
 
+If you want to use the multilingual add-on in order to process non-English texts, pass `lang: "<your language code>"`. For example, if you want to process French text, you should set `lang: "fr"`.
+
+```ruby
+require 'nlpcloud'
+
+client = NLPCloud::Client.new("<model>", "<your token>", lang: "your language code")
+```
+
 ### Entities Endpoint
 
 Call the `entities()` method and pass the text you want to perform named entity recognition (NER) on.

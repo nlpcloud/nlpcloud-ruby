@@ -114,6 +114,14 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
+    def semantic_similarity(sentences)
+      payload = {
+        'sentences' => sentences
+      }
+      response = RestClient.post("#{@root_url}/semantic_similarity", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
     def tokens(text)
       payload = {
         'text' => text
@@ -135,6 +143,14 @@ module NLPCloud
         'text' => text
       }
       response = RestClient.post("#{@root_url}/sentence-dependencies", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def embeddings(sentences)
+      payload = {
+        'sentences' => sentences
+      }
+      response = RestClient.post("#{@root_url}/embeddings", payload.to_json, @headers)
       JSON.parse(response.body)
     end
 

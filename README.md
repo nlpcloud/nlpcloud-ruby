@@ -140,7 +140,6 @@ Call the `generation()` method and pass the following arguments:
 1. (Optional) `length_penalty`: Exponential penalty to the length, as a float. 1.0 means no penalty. Set to values < 1.0 in order to encourage the model to generate shorter sequences, or to a value > 1.0 in order to encourage the model to produce longer sequences. Defaults to 1.0.
 1. (Optional) `bad_words`: List of tokens that are not allowed to be generated, as a list of strings. Defaults to null.
 
-
 ```ruby
 client.generation("<Your input text>")
 ```
@@ -200,6 +199,16 @@ client.langdetection("<The text you want to analyze>")
 
 The above command returns a JSON object.
 
+### Semantic Similarity Endpoint
+
+Call the `semantic_similarity()` method and pass a list made up of 2 blocks of text that you want to compare.
+
+```python
+client.semantic_similarity(["<Block of text 1>", "<Block of text 2>")
+```
+
+The above command returns a JSON object.
+
 ### Tokenization Endpoint
 
 Call the `tokens()` method and pass the text you want to tokenize.
@@ -230,6 +239,16 @@ client.sentence_dependencies("<Your block of text>")
 
 The above command returns a JSON object.
 
+### Embeddings Endpoint
+
+Call the `embeddings()` method and pass a list of blocks of text that you want to extract embeddings from.
+
+```ruby
+client.embeddings(["<Text 1>", "<Text 2>", "<Tex 3>"], ...)
+```
+
+The above command returns a JSON object.
+
 ### Library Versions Endpoint
 
 Call the `lib_versions()` method to know the versions of the libraries used behind the hood with the model (for example the PyTorch, TensorFlow or spaCy versions used).
@@ -239,4 +258,3 @@ client.lib_versions()
 ```
 
 The above command returns a JSON object.
-

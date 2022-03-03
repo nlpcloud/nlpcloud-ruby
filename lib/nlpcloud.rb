@@ -35,7 +35,7 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def classification(text, labels, multi_class: nil)
+    def classification(text, labels: nil, multi_class: nil)
       payload = {
         'text' => text,
         'labels' => labels,
@@ -81,10 +81,10 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def question(context, question)
+    def question(question, context: nil)
       payload = {
-        'context' => context,
-        'question' => question
+        'question' => question,
+        'context' => context
       }
       response = RestClient.post("#{@root_url}/question", payload.to_json, @headers)
       JSON.parse(response.body)

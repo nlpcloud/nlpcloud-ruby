@@ -27,9 +27,10 @@ module NLPCloud
                   end
     end
 
-    def entities(text)
+    def entities(text, searched_entity: nil)
       payload = {
-        'text' => text
+        'text' => text,
+        'searched_entity' => searched_entity
       }
       response = RestClient.post("#{@root_url}/entities", payload.to_json, @headers)
       JSON.parse(response.body)

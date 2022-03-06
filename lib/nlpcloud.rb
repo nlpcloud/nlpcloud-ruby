@@ -99,6 +99,14 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
+    def paraphrasing(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/paraphrasing", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
     def translation(text)
       payload = {
         'text' => text

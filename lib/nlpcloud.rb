@@ -27,12 +27,19 @@ module NLPCloud
                   end
     end
 
-    def entities(text, searched_entity: nil)
+    def ad_generation(keywords)
       payload = {
-        'text' => text,
-        'searched_entity' => searched_entity
+        'keywords' => keywords
       }
-      response = RestClient.post("#{@root_url}/entities", payload.to_json, @headers)
+      response = RestClient.post("#{@root_url}/ad-generation", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def chatbot(_text, history: nil)
+      payload = {
+        'text' => history
+      }
+      response = RestClient.post("#{@root_url}/chatbot", payload.to_json, @headers)
       JSON.parse(response.body)
     end
 
@@ -43,6 +50,31 @@ module NLPCloud
         'multi_class' => multi_class
       }
       response = RestClient.post("#{@root_url}/classification", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def dependencies(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/dependencies", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def embeddings(sentences)
+      payload = {
+        'sentences' => sentences
+      }
+      response = RestClient.post("#{@root_url}/embeddings", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def entities(text, searched_entity: nil)
+      payload = {
+        'text' => text,
+        'searched_entity' => searched_entity
+      }
+      response = RestClient.post("#{@root_url}/entities", payload.to_json, @headers)
       JSON.parse(response.body)
     end
 
@@ -74,11 +106,48 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def sentiment(text)
+    def gs_correction(text)
       payload = {
         'text' => text
       }
-      response = RestClient.post("#{@root_url}/sentiment", payload.to_json, @headers)
+      response = RestClient.post("#{@root_url}/gs-correction", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def intent_classification(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/intent-classification", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def kw_kp_extraction(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/kw-kp-extraction", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def langdetection(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/langdetection", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def lib_versions
+      response = RestClient.get("#{@root_url}/versions", @headers)
+      JSON.parse(response.body)
+    end
+
+    def paraphrasing(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/paraphrasing", payload.to_json, @headers)
       JSON.parse(response.body)
     end
 
@@ -91,59 +160,11 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def summarization(text)
-      payload = {
-        'text' => text
-      }
-      response = RestClient.post("#{@root_url}/summarization", payload.to_json, @headers)
-      JSON.parse(response.body)
-    end
-
-    def paraphrasing(text)
-      payload = {
-        'text' => text
-      }
-      response = RestClient.post("#{@root_url}/paraphrasing", payload.to_json, @headers)
-      JSON.parse(response.body)
-    end
-
-    def translation(text)
-      payload = {
-        'text' => text
-      }
-      response = RestClient.post("#{@root_url}/translation", payload.to_json, @headers)
-      JSON.parse(response.body)
-    end
-
-    def langdetection(text)
-      payload = {
-        'text' => text
-      }
-      response = RestClient.post("#{@root_url}/langdetection", payload.to_json, @headers)
-      JSON.parse(response.body)
-    end
-
     def semantic_similarity(sentences)
       payload = {
         'sentences' => sentences
       }
       response = RestClient.post("#{@root_url}/semantic_similarity", payload.to_json, @headers)
-      JSON.parse(response.body)
-    end
-
-    def tokens(text)
-      payload = {
-        'text' => text
-      }
-      response = RestClient.post("#{@root_url}/tokens", payload.to_json, @headers)
-      JSON.parse(response.body)
-    end
-
-    def dependencies(text)
-      payload = {
-        'text' => text
-      }
-      response = RestClient.post("#{@root_url}/dependencies", payload.to_json, @headers)
       JSON.parse(response.body)
     end
 
@@ -155,16 +176,35 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def embeddings(sentences)
+    def sentiment(text)
       payload = {
-        'sentences' => sentences
+        'text' => text
       }
-      response = RestClient.post("#{@root_url}/embeddings", payload.to_json, @headers)
+      response = RestClient.post("#{@root_url}/sentiment", payload.to_json, @headers)
       JSON.parse(response.body)
     end
 
-    def lib_versions
-      response = RestClient.get("#{@root_url}/versions", @headers)
+    def summarization(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/summarization", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def tokens(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/tokens", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def translation(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/translation", payload.to_json, @headers)
       JSON.parse(response.body)
     end
   end

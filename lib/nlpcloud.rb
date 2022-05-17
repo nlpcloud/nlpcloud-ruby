@@ -16,6 +16,9 @@ module NLPCloud
         'User-Agent' => 'nlpcloud-ruby-client'
       }
 
+      if lang == 'en'
+        lang = ''
+
       @root_url = if gpu && (lang != '')
                     "#{BASE_URL}/#{API_VERSION}/gpu/#{lang}/#{model}"
                   elsif gpu && (lang == '')

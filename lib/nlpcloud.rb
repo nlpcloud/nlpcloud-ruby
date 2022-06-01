@@ -203,9 +203,11 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def translation(text)
+    def translation(text, source, target)
       payload = {
-        'text' => text
+        'text' => text,
+        'source' => source,
+        'target' => target
       }
       response = RestClient.post("#{@root_url}/translation", payload.to_json, @headers)
       JSON.parse(response.body)

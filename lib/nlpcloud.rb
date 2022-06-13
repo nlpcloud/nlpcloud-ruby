@@ -18,6 +18,7 @@ module NLPCloud
 
       if lang == 'en'
         lang = ''
+      end
 
       @root_url = if gpu && (lang != '')
                     "#{BASE_URL}/#{API_VERSION}/gpu/#{lang}/#{model}"

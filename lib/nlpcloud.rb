@@ -47,9 +47,11 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def chatbot(_text, history: nil)
+    def chatbot(text, context: nil, history: nil)
       payload = {
-        'text' => history
+        'text' => text,
+        'context' => context,
+        'history' => history
       }
       response = RestClient.post("#{@root_url}/chatbot", payload.to_json, @headers)
       JSON.parse(response.body)

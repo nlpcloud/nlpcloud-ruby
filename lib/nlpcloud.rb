@@ -39,6 +39,14 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
+    def article_generation(title)
+      payload = {
+        'title' => title
+      }
+      response = RestClient.post("#{@root_url}/article-generation", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
     def chatbot(_text, history: nil)
       payload = {
         'text' => history
@@ -54,6 +62,14 @@ module NLPCloud
         'multi_class' => multi_class
       }
       response = RestClient.post("#{@root_url}/classification", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def code_generation(instruction)
+      payload = {
+        'instruction' => instruction
+      }
+      response = RestClient.post("#{@root_url}/code-generation", payload.to_json, @headers)
       JSON.parse(response.body)
     end
 

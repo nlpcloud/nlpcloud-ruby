@@ -242,6 +242,16 @@ client.gs_correction("<Your block of text>")
 
 The above command returns a JSON object.
 
+### Image Generation Endpoint
+
+Call the `image_generation()` method and pass the text you want to use to generate your image:
+
+```ruby
+client.image_generation("<Your block of text>")
+```
+
+The above command returns a JSON object.
+
 ### Intent Classification Endpoint
 
 Call the `intent_classification()` method and pass the text you want to extract intents from:

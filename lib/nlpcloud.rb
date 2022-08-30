@@ -136,6 +136,14 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
+    def image_generation(text)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/image-generation", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
     def intent_classification(text)
       payload = {
         'text' => text

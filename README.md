@@ -2,7 +2,7 @@
 
 This is the Ruby client for the [NLP Cloud](https://nlpcloud.io) API. See the [documentation](https://docs.nlpcloud.io) for more details.
 
-NLP Cloud serves high performance pre-trained or custom models for NER, sentiment-analysis, classification, summarization, dialogue summarization, paraphrasing, intent classification, product description and ad generation, chatbot, grammar and spelling correction, keywords and keyphrases extraction, text generation, image generation, code generation, blog post generation, question answering, machine translation, language detection, semantic similarity, tokenization, POS tagging, embeddings, and dependency parsing. It is ready for production, served through a REST API.
+NLP Cloud serves high performance pre-trained or custom models for NER, sentiment-analysis, classification, summarization, dialogue summarization, paraphrasing, intent classification, product description and ad generation, chatbot, grammar and spelling correction, keywords and keyphrases extraction, text generation, image generation, code generation, blog post generation, question answering, automatic speech recognition, machine translation, language detection, semantic similarity, tokenization, POS tagging, embeddings, and dependency parsing. It is ready for production, served through a REST API.
 
 You can either use the NLP Cloud pre-trained models, fine-tune your own models, or deploy your own models.
 
@@ -125,6 +125,16 @@ Call the `ad_generation()` method and pass a list of keywords you want to genera
 
 ```ruby
 client.ad_generation(["Keyword 1", "Keyword 2", "Keyword 3", ...])
+```
+
+The above command returns a JSON object.
+
+### Automatic Speech Recognition (Speech to Text) Endpoint
+
+Call the `asr()` method and pass a url that hosts your audio or video file.
+
+```ruby
+client.asr("your url")
 ```
 
 The above command returns a JSON object.

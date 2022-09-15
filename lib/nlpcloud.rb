@@ -47,6 +47,14 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
+    def asr(url)
+      payload = {
+        'url' => url
+      }
+      response = RestClient.post("#{@root_url}/asr", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
     def chatbot(text, context: nil, history: nil)
       payload = {
         'text' => text,

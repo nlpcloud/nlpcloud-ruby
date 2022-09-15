@@ -43,7 +43,7 @@ Here is a full example that does the same thing, but on a GPU:
 ```ruby
 require 'nlpcloud'
 
-client = NLPCloud::Client.new("bart-large-cnn","4eC39HqLyjWDarjtT1zdp7dc", true)
+client = NLPCloud::Client.new("bart-large-cnn","4eC39HqLyjWDarjtT1zdp7dc", gpu: true)
 client.summarization("One month after the United States began what has become a 
   troubled rollout of a national COVID vaccination campaign, the effort is finally 
   gathering real steam. Close to a million doses -- over 951,000, to be more exact -- 
@@ -63,7 +63,7 @@ Here is a full example that does the same thing, but on a French text:
 ```ruby
 require 'nlpcloud'
 
-client = NLPCloud::Client.new("bart-large-cnn","4eC39HqLyjWDarjtT1zdp7dc", true, "fr")
+client = NLPCloud::Client.new("bart-large-cnn","4eC39HqLyjWDarjtT1zdp7dc", gpu: true, lang: "fr")
 client.summarization("Sur des images aériennes, prises la veille par un vol de surveillance 
   de la Nouvelle-Zélande, la côte d’une île est bordée d’arbres passés du vert 
   au gris sous l’effet des retombées volcaniques. On y voit aussi des immeubles

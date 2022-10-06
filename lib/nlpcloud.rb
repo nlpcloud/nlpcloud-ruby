@@ -198,6 +198,14 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
+    def semantic_search(sentences)
+      payload = {
+        'text' => text
+      }
+      response = RestClient.post("#{@root_url}/semantic_search", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
     def semantic_similarity(sentences)
       payload = {
         'sentences' => sentences

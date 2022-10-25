@@ -230,9 +230,10 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def summarization(text)
+    def summarization(text, size: nil)
       payload = {
-        'text' => text
+        'text' => text,
+        'size' => size
       }
       response = RestClient.post("#{@root_url}/summarization", payload.to_json, @headers)
       JSON.parse(response.body)

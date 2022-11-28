@@ -63,7 +63,7 @@ module NLPCloud
     end
 
     def async_result(url)
-      response = RestClient.get(@root_url, @headers)
+      response = RestClient.get(url, @headers)
       JSON.parse(response.body)
     end
 

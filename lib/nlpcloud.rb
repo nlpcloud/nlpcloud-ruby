@@ -9,26 +9,33 @@ module NLPCloud
 
   # Client requests the API.
   class Client
-    def initialize(model, token, gpu: false, lang: '')
+    def initialize(model, token, gpu: false, lang: '', asynchronous: false)
       @headers = {
         'Authorization' => "Token #{token}",
         'Content-Type' => 'application/json',
         'User-Agent' => 'nlpcloud-ruby-client'
       }
 
-      if lang == 'en'
-        lang = ''
+      @root_url = "#{BASE_URL}/#{API_VERSION}/"
+
+      if lang == "en"
+        lang = ""
       end
 
-      @root_url = if gpu && (lang != '')
-                    "#{BASE_URL}/#{API_VERSION}/gpu/#{lang}/#{model}"
-                  elsif gpu && (lang == '')
-                    "#{BASE_URL}/#{API_VERSION}/gpu/#{model}"
-                  elsif !gpu && (lang != '')
-                    "#{BASE_URL}/#{API_VERSION}/#{lang}/#{model}"
-                  else
-                    "#{BASE_URL}/#{API_VERSION}/#{model}"
-                  end
+      if gpu
+        @root_url += "gpu/"
+      end
+
+      if lang
+        @root_url += lang + "/"
+      end
+
+      if asynchronous
+        @root_url += "async/"
+      end
+
+      @root_url += model
+
     end
 
     def ad_generation(keywords)
@@ -52,6 +59,11 @@ module NLPCloud
         'url' => url
       }
       response = RestClient.post("#{@root_url}/asr", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
+    def async_result(url)
+      response = RestClient.get(@root_url, @headers)
       JSON.parse(response.body)
     end
 

@@ -26,12 +26,12 @@ module NLPCloud
         @root_url += "gpu/"
       end
 
-      if lang
-        @root_url += lang + "/"
-      end
-
       if asynchronous
         @root_url += "async/"
+      end
+
+      if lang
+        @root_url += lang + "/"
       end
 
       @root_url += model

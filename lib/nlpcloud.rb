@@ -30,7 +30,7 @@ module NLPCloud
         @root_url += "async/"
       end
 
-      if lang
+      if lang != ""
         @root_url += lang + "/"
       end
 

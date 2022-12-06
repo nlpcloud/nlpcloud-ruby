@@ -54,9 +54,10 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def asr(url)
+    def asr(url: nil, encoded_file: nil)
       payload = {
-        'url' => url
+        'url' => url,
+        'encoded_file' => encoded_file
       }
       response = RestClient.post("#{@root_url}/asr", payload.to_json, @headers)
       JSON.parse(response.body)

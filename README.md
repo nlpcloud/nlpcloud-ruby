@@ -170,7 +170,7 @@ The above command returns a JSON object.
 Call the `chatbot()` method and pass your input. As an option, you can also pass a context and a conversation history that is a list of hashes. Each hash is made of an `input` and a `response` from the chatbot.
 
 ```ruby
-client.chatbot("Your input", "You context", [{"input":"input 1","response":"response 1"}, {"input":"input 2","response":"response 2"}, ...])
+client.chatbot("Your input", "You context", [{"input"=>"input 1","response"=>"response 1"}, {"input"=>"input 2","response"=>"response 2"}, ...])
 ```
 
 The above command returns a JSON object.
@@ -346,7 +346,7 @@ The above command returns a JSON object.
 Call the `semantic_search()` method and pass your search query.
 
 ```python
-client.semantic_search(["Your search query"])
+client.semantic_search("Your search query")
 ```
 
 The above command returns a JSON object.

@@ -147,10 +147,14 @@ The above command returns a JSON object.
 
 ### Automatic Speech Recognition (Speech to Text) Endpoint
 
-Call the `asr()` method and pass a url that hosts your audio or video file.
+Call the `asr()` method and pass the following arguments:
+
+1. (Optional: either this or the encoded file should be set) `url`: a URL where your audio or video file is hosted
+1. (Optional: either this or the url should be set) `encoded_file`: a base 64 encoded version of your file
+1. (Optional) `input_language`: the language of your file as ISO code
 
 ```ruby
-client.asr("your url")
+client.asr("Your url")
 ```
 
 The above command returns a JSON object.
@@ -170,7 +174,7 @@ The above command returns a JSON object.
 Call the `chatbot()` method and pass your input. As an option, you can also pass a context and a conversation history that is a list of hashes. Each hash is made of an `input` and a `response` from the chatbot.
 
 ```ruby
-client.chatbot("Your input", "You context", [{"input"=>"input 1","response"=>"response 1"}, {"input"=>"input 2","response"=>"response 2"}, ...])
+client.chatbot("<Your input>", "<Your context>", [{"input"=>"input 1","response"=>"response 1"}, {"input"=>"input 2","response"=>"response 2"}, ...])
 ```
 
 The above command returns a JSON object.

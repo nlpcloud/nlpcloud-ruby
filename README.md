@@ -174,7 +174,7 @@ The above command returns a JSON object.
 Call the `chatbot()` method and pass your input. As an option, you can also pass a context and a conversation history that is a list of hashes. Each hash is made of an `input` and a `response` from the chatbot.
 
 ```ruby
-client.chatbot("<Your input>", "<Your context>", [{"input"=>"input 1","response"=>"response 1"}, {"input"=>"input 2","response"=>"response 2"}, ...])
+client.chatbot("<Your input>", context: "<Your context>", history: [{"input"=>"input 1","response"=>"response 1"}, {"input"=>"input 2","response"=>"response 2"}, ...])
 ```
 
 The above command returns a JSON object.
@@ -188,7 +188,7 @@ Call the `classification()` method and pass the following arguments:
 1. (Optional) `multi_class`: Whether the classification should be multi-class or not, as a boolean
 
 ```ruby
-client.classification("<Your block of text>", ["label 1", "label 2", "..."])
+client.classification("<Your block of text>", labels: ["label 1", "label 2", "..."])
 ```
 
 The above command returns a JSON object.
@@ -340,7 +340,7 @@ Call the `question()` method and pass the following:
 1. A context that the model will use to try to answer your question
 
 ```ruby
-client.question("<Your question>","<Your context>")
+client.question(question: "<Your question>",context: "<Your context>")
 ```
 
 The above command returns a JSON object.

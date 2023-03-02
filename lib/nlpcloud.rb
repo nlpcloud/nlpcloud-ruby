@@ -212,9 +212,10 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def semantic_search(sentences)
+    def semantic_search(text, num_results: nil)
       payload = {
-        'text' => text
+        'text' => text,
+        'num_results' => num_results
       }
       response = RestClient.post("#{@root_url}/semantic_search", payload.to_json, @headers)
       JSON.parse(response.body)

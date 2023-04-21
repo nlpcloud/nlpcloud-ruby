@@ -389,7 +389,7 @@ The above command returns a JSON object.
 
 Call the `speech_synthesis()` method and pass the text you want to convert to audio:
 
-```python
+```ruby
 client.speech_synthesis("<Your block of text>")
 ```
 

@@ -247,6 +247,15 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
+    def speech_synthesis(text, voice: nil)
+      payload = {
+        'text' => text,
+        'voice' => voice
+      }
+      response = RestClient.post("#{@root_url}/speech-synthesis", payload.to_json, @headers)
+      JSON.parse(response.body)
+    end
+
     def summarization(text, size: nil)
       payload = {
         'text' => text,

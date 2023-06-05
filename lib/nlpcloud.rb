@@ -46,14 +46,6 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def article_generation(title)
-      payload = {
-        'title' => title
-      }
-      response = RestClient.post("#{@root_url}/article-generation", payload.to_json, @headers)
-      JSON.parse(response.body)
-    end
-
     def asr(url: nil, encoded_file: nil, input_language: nil)
       payload = {
         'url' => url,

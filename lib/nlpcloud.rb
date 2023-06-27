@@ -21,6 +21,9 @@ module NLPCloud
       if lang == "en"
         lang = ""
       end
+      if lang == "eng_Latn"
+        lang = ""
+      end
 
       if gpu
         @root_url += "gpu/"

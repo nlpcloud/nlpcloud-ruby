@@ -1,6 +1,6 @@
 # Ruby Client For NLP Cloud
 
-This is the Ruby client for the [NLP Cloud](https://nlpcloud.io) API. See the [documentation](https://docs.nlpcloud.io) for more details.
+This is the Ruby client for the [NLP Cloud](https://nlpcloud.com) API. See the [documentation](https://docs.nlpcloud.com) for more details.
 
 NLP Cloud serves high performance pre-trained or custom models for NER, sentiment-analysis, classification, summarization, dialogue summarization, paraphrasing, intent classification, product description and ad generation, chatbot, grammar and spelling correction, keywords and keyphrases extraction, text generation, image generation, code generation, question answering, automatic speech recognition, machine translation, language detection, semantic search, semantic similarity, tokenization, POS tagging, embeddings, and dependency parsing. It is ready for production, served through a REST API.
 
@@ -95,7 +95,7 @@ Pass the model you want to use and the NLP Cloud token to the client during init
 
 The model can either be a pre-trained model like `en_core_web_lg`, `bart-large-mnli`... but also one of your custom models `custom_model/<model id>` (e.g. `custom_model/2568`).
 
-Your token can be retrieved from your [NLP Cloud dashboard](https://nlpcloud.io/home/token).
+Your token can be retrieved from your [NLP Cloud dashboard](https://nlpcloud.com/home/token).
 
 ```ruby
 require 'nlpcloud'
@@ -131,16 +131,6 @@ If you are making asynchronous requests, you will always receive a quick respons
 
 ```ruby
 client.async_result("https://api.nlpcloud.io/v1/get-async-result/21718218-42e8-4be9-a67f-b7e18e03b436")
-```
-
-The above command returns a JSON object.
-
-### Ad Generation and Product Description Endpoint
-
-Call the `ad_generation()` method and pass a list of keywords you want to generate you product description or ad from.
-
-```ruby
-client.ad_generation(["Keyword 1", "Keyword 2", "Keyword 3", ...])
 ```
 
 The above command returns a JSON object.

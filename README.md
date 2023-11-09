@@ -144,7 +144,7 @@ Call the `asr()` method and pass the following arguments:
 1. (Optional) `input_language`: the language of your file as ISO code
 
 ```ruby
-client.asr("Your url")
+client.asr(url:"Your url")
 ```
 
 The above command returns a JSON object.

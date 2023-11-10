@@ -61,7 +61,10 @@ module NLPCloud
 
     def async_result(url)
       response = RestClient.get(url, @headers)
-      JSON.parse(response.body)
+
+      if response.body && !response.body.empty?
+        JSON.parse(response.body)
+      end
     end
 
     def chatbot(text, context: nil, history: nil)

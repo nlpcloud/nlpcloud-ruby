@@ -183,11 +183,6 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def lib_versions
-      response = RestClient.get("#{@root_url}/versions", @headers)
-      JSON.parse(response.body)
-    end
-
     def paraphrasing(text)
       payload = {
         'text' => text

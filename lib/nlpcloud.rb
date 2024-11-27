@@ -225,9 +225,10 @@ module NLPCloud
       JSON.parse(response.body)
     end
 
-    def sentiment(text)
+    def sentiment(text, target: nil)
       payload = {
-        'text' => text
+        'text' => text,
+        'target' => target
       }
       response = RestClient.post("#{@root_url}/sentiment", payload.to_json, @headers)
       JSON.parse(response.body)
